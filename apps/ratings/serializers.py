@@ -1,0 +1,18 @@
+from rest_framework import serializers
+from ..users.models import Rating
+
+class RatingSerializer(serializers.ModelSerializer):
+    rater=serializers.SerializerMethodField(read_only=True)
+    agent=serializers.SerializerMethodField(read_only=True)
+    
+    class Meta:
+        model=Rating
+        exclude=["created_at", "updated_at"]
+        
+    def get_rater(self, obj):
+        return obj.rater.username
+    
+    def get_agent(self, obj):
+        return obj.agent.user.username
+    
+    
