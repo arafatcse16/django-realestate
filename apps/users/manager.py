@@ -12,15 +12,15 @@ class CustomUserManager(BaseUserManager):
     def create_user(self, username, first_name, last_name, email, password, **extra_fields):
         if not username:
             raise ValueError(_("Users must submit a username"))
-        if not firs_name: 
+        if not first_name: 
             raise ValueError(_("Users must submit a first_name"))
         if not last_name:
             raise ValueError(_("Users must submit a last_name"))
         if not email:
             email=self.normalize_email(email)
             self.email_validator(email)
-        else:
-            raise ValueError(_("Base User Account: An email address is required"))
+        # else:
+        #     raise ValueError(_("Base User Account: An email address is required"))
         user=self.model(username=username, first_name=first_name, last_name=last_name, email=email, **extra_fields)
         user.set_password(password)
         extra_fields.setdefault("is_active", True)
