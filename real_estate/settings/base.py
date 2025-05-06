@@ -47,13 +47,14 @@ DJANGO_APPS = [
 SITE_ID = 1
 
 THIRD_PARTY_APPS = [
-    "rest_framework", 
-    "django_filters", 
-    "django_countries", 
+    "rest_framework",
+    "django_filters",
+    "django_countries",
     "phonenumber_field",
-    "djoser", 
-    "rest_framework_simplejwt"
-    ]
+    "djoser",
+    "rest_framework_simplejwt",
+]
+
 LOCACL_APPS = [
     "apps.common",
     "apps.users",
@@ -155,12 +156,16 @@ REST_FRAMEWORK = {
 
 from datetime import timedelta
 SIMPLE_JWT = {
-    "AUTH_HEADER_TYPES": ("Bearer","JWT"),
+    "AUTH_HEADER_TYPES": (
+        "Bearer",
+        "JWT",
+    ),
     "ACCESS_TOKEN_LIFETIME": timedelta(minutes=120),
     "REFRESH_TOKEN_LIFETIME": timedelta(days=1),
-    "SIGNING_KEY": env('SIGNING_KEY'),
+    "SIGNING_KEY": env("SIGNING_KEY"),
     "AUTH_HEADER_NAME": "HTTP_AUTHORIZATION",
-    "AUTH_TOKEN_CLASSES": ("rest_frameworl_simplejwt.tokens.AcessToken",),
+    "AUTH_TOKEN_CLASSES": ("rest_framework_simplejwt.tokens.AccessToken",),
+
 }
 
 DJOSER = {

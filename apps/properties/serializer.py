@@ -65,7 +65,7 @@ class PropertySerializer( serializers.ModelSerializer):
         return obj.photo4.url if obj.photo4 else None
     
     def get_profile_photo(self, obj):
-        return obj.user.profile_photo.url if obj.user.profile_photo else None
+        return obj.user.profile.profile_photo.url
     
 class PropertyCreateSerializer(serializers.ModelSerializer):
     country=CountryField(name_only=True)
