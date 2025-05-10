@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/5.0/ref/settings/
 """
 
 from pathlib import Path
+from datetime import timedelta
 import environ
 
 env=environ.Env(DEBUG=(bool, False))
@@ -154,7 +155,7 @@ REST_FRAMEWORK = {
     )
 }
 
-from datetime import timedelta
+
 SIMPLE_JWT = {
     "AUTH_HEADER_TYPES": (
         "Bearer",
